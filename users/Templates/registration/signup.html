@@ -1,0 +1,38 @@
+{% extends 'Events/base.html' %}
+{% load crispy_forms_tags%}
+
+{% block content %}
+
+
+    {% if form.errors %}
+
+         <div class=" alert alert-warning alert-dismissible fade show role = "alert">
+                   <p>There was an error with your form </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    {% endif %}
+		<div class="form-group">
+
+
+
+
+
+			<form action='{% url 'register'%}' method= POST>
+				{% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4"><center><h1>Sign Up</h1></center></legend>
+                    {{ form|crispy}}
+                </fieldset></br>
+                  <input type="submit" value="Sign Up" class='btn btn-primary'>
+
+
+
+			</form>
+
+
+	</div>
+
+
+
+{% endblock %}

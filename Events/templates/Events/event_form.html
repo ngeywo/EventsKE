@@ -1,0 +1,33 @@
+{% extends 'Events/base.html' %}
+{% load crispy_forms_tags%}
+
+
+{% block content %}  
+
+
+		<br/><br/>
+
+<div class="alert alert-info">
+		{% if submitted %}
+			Your event was successfully added!!!
+
+		{% else %}
+</div>
+	<center>
+		<div class="form-outline mb-4">
+		<h1>Add Event</h1>
+</center>
+			<form action='' method= POST>
+				{% csrf_token %}
+				
+				{{ form|crispy}}
+
+				<input type="submit" value="Submit" class='btn btn-primary'>
+
+			</form>
+		{% endif %}
+	</div>
+
+				
+
+{% endblock %}

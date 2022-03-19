@@ -1,0 +1,37 @@
+{% extends 'Events/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <article class="media content-section"><img class="rounded-circle article-img" src="{{ event.manager.profile.image.url }}">
+      <div class="media-body">
+        <div class="article-metadata">
+            <h3>
+          <div class="mr-2" >{{ event }}
+          <small class="text-muted">{{ event.date_posted }}</small>
+             {% if event.manager == user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'event-update' event.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' event.id %}">Delete</a>
+          </div>
+        {% endif %}
+                </h3>
+        </div>
+        <h3 class="article-title" >Event Manager: {{ event.manager }}</h3>
+        <ul>
+			<li><h3>Date:{{ event.event_date }}</h3></li>
+            <li><h3>Venue:{{ event.venue }}</h3></li>
+
+        </ul>
+        <p class="article-content">{{ event.description }}</p>
+      </div>
+    </article>
+
+
+{% endblock %}
+
+
+
+
+
+

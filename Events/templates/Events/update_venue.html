@@ -1,0 +1,11 @@
+{% extends 'Events/base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}<br/>
+
+    <button class="btn btn-outline-primary" type="submit">Submit</button>
+</form>
+
+{% endblock %}
